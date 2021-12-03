@@ -98,5 +98,6 @@ class game{
         this.boardDiv.appendChild(div);
 
         return div;
+        console.log(div)
     }
 }
