@@ -1,7 +1,7 @@
 let game;
 
 function init(){
-    game = new Gamepad();
+    game = new Game();
 }
 
 class player {
@@ -13,14 +13,14 @@ class player {
     }
 }
 
-class Tile{
+class Tile {
     constructor(div){
         this.div = div;
         this.goto = -1;
     }
 }
 
-class game{
+class Game{
     constructor(){
         this.selectplayersDiv = document.getElementsByClassName("selectplayers")[0];
         this.winnerDiv = document.getElementsByClassName("winner")[0];
@@ -62,22 +62,46 @@ class game{
             let tile = new Tile(div);
             this.tiles.push(tile);
             }
+            this.setupGotos();
     }
 
     setupGotos(){
+        let goto = [[6, 14], [16, 4], [17, 23], [27, 33], [29, 10], [38, 43], [39, 20], [45, 34]];
+        
+        for (var i = 0; i < goto.length; i++){
+            let element = goto[i];
+            let start = element[0] - 1;
+            let end = element[1] - 1;
 
+            let tile = this.tiles[start];
+            tile.goto = end;
+        }
     }
 
     start(amountOfPlayers){
+        //select player hide
+        //winner hide
 
+        //pawns alle 4 hide -> selectie class pawn
+
+        //players aanmaken
+
+        //eerste beurt starten
+        //playerturn = -1
     }
 
     moveToNextPlayer(){
+        //player turn ophogen naar de volgende speler
+        //player turn groter dan aantal spelers?
+        // dan willen we terug naar eerste speler
 
+        //draw aanroepen
     }
 
     draw(){
-
+        //voor elke speler
+        //pawn neerzetten op huidige locatie van speler
+        //set pawn
     }
 
     roll(){
